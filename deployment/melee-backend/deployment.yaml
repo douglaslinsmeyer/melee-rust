@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: melee-server-app
+spec:
+  selector:
+    matchLabels:
+      app: melee-server-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: melee-server-app
+    spec:
+      containers:
+      - name: melee-server
+        image: melee-server
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
