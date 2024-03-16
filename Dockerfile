@@ -1,4 +1,4 @@
-FROM rust:latest as build
+FROM rust:bookworm as build
 
 WORKDIR /usr/src/melee
 
